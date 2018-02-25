@@ -5,7 +5,7 @@ class App extends Component {
   render() {
     return (
       <div id="application">
-        <h1>It's React application!</h1>
+        { this.props.children }
       </div>
     );
   }
