@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import ru.tradepilot.mcard.api.dto.ErrorMessage;
+import ru.tradepilot.mcard.api.dto.Message;
 
 @ControllerAdvice
 public class AuthenticationExceptionHandler {
@@ -17,8 +17,8 @@ public class AuthenticationExceptionHandler {
     @ExceptionHandler(AuthenticationException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public ErrorMessage handleAuthenticationException(AuthenticationException e) {
+    public Message handleAuthenticationException(AuthenticationException e) {
         log.debug("Incorrect login");
-        return new ErrorMessage(e.getMessage(), "login.error.badLogin");
+        return new Message(e.getMessage(), "login.error.badLogin");
     }
 }

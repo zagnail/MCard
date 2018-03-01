@@ -1,13 +1,13 @@
 package ru.tradepilot.mcard.api.dto;
 
-public class ErrorMessage {
+public class Message {
     private String message;
     private String messageKey;
 
-    public ErrorMessage() {
+    public Message() {
     }
 
-    public ErrorMessage(String message, String messageKey) {
+    public Message(String message, String messageKey) {
         this.message = message;
         this.messageKey = messageKey;
     }

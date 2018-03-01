@@ -17,6 +17,9 @@ public class UserDto {
 
     private boolean authenticated;
 
+    public UserDto() {
+    }
+
     public UserDto(String email, String token, boolean authenticated) {
         this.email = email;
         this.token = token;

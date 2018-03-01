@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import ru.tradepilot.mcard.api.dto.Credentials;
+import ru.tradepilot.mcard.api.dto.Message;
 import ru.tradepilot.mcard.api.dto.UserDto;
 
 import javax.servlet.http.HttpSession;
@@ -38,7 +39,9 @@ public class AuthenticationResource {
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
-    public void logout(HttpSession session) {
+    public Message logout(HttpSession session) {
         session.invalidate();
+
+        return new Message("Unathentication", "user.unauthentication");
     }
 }
