@@ -1,4 +1,4 @@
-package ru.tradepilot.mcard.api;
+package ru.tradepilot.mcard.api.resource;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
