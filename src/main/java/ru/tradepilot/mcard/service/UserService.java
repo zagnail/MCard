@@ -23,6 +23,9 @@ public class UserService implements IUserService {
     @Autowired
     private SessionRegistry sessionRegistry;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public User register(UserDto accountDto) throws UserAlreadyExistException {
         if (userEmailExists(accountDto.getEmail())) {
@@ -31,7 +34,7 @@ public class UserService implements IUserService {
 
         User user = new User();
         user.setEmail(accountDto.getEmail());
-        user.setPassword(accountDto.getPassword());
+        user.setPassword(passwordEncoder.encode(accountDto.getPassword()));
 
         return userRepository.save(user);
     }

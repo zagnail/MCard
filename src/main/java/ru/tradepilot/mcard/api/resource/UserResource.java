@@ -1,6 +1,8 @@
 package ru.tradepilot.mcard.api.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.tradepilot.mcard.api.dto.Message;
 import ru.tradepilot.mcard.api.dto.UserDto;
@@ -19,9 +21,11 @@ public class UserResource {
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     @ResponseBody
-    public Message registerUserAccount(@RequestBody @Valid UserDto accountDto) throws UserAlreadyExistException {
+    public ResponseEntity<Message> registerUserAccount(@RequestBody @Valid UserDto accountDto) throws UserAlreadyExistException {
         User registered = userService.register(accountDto);
 
-        return new Message("Registration is success: " + registered.getEmail(), "user.register.success");
+        Message message = new Message("Registration is success: ", "user.register.success");
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(message);
     }
 }
