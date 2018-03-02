@@ -3,6 +3,6 @@ import { connect } from 'react-redux';
 import { fetchSimple } from 'reducers/simple';
 
 export default connect(
-  state => ({ message: state.simple.message }),
+  state => ({ email: state.simple.email }),
   { fetchSimple }
 )(SimpleComponent);

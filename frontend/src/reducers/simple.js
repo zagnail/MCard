@@ -3,7 +3,7 @@ const FETCH_SUCCESS = 'simple/FETCH_SUCCESS';
 const FETCH_FAIL = 'simple/FETCH_FAIL';
 
 const initialState = {
-  message: ''
+  email: ''
 };
 
 // Reducer
@@ -13,7 +13,7 @@ export default function simpleReducer(state = initialState, action) {
     case FETCH_SUCCESS:
       return {
         ...state,
-        message: action.result.data.message
+        email: action.result.data.email
       };
 
     default:
@@ -26,6 +26,6 @@ export default function simpleReducer(state = initialState, action) {
 export function fetchSimple() {
   return {
     types: [FETCH, FETCH_SUCCESS, FETCH_FAIL],
-    promise: client => client.get('/api/simple')
+    promise: client => client.get('/api/session')
   };
 }

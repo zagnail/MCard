@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 export default class SimpleComponent extends Component {
   render() {
-    var message = this.props.message;
+    var email = this.props.email;
 
     return (
       <div>
-        <p>{ message }</p>
+        <p>{ email }</p>
         <button onClick={ this.props.fetchSimple }>Fetch</button>
       </div>
     );
